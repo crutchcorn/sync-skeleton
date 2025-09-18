@@ -73,7 +73,7 @@ export const useSkeleton = () => {
 
   useLayoutEffect(() => {
     if (!ref) return
-    ref.style.setProperty("--skeleton-percentage", `${percentageVal}%`)
+    ref.style.setProperty("--skeleton-percentage", `${percentageVal}`)
   }, [ref, percentageVal])
 
   useLayoutEffect(() => {

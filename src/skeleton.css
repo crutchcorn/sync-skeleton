@@ -1,13 +1,8 @@
 .react-loading-skeleton {
   --base-color: #ebebeb;
-  --highlight-color: #f5f5f5;
+  --highlight-color: red;
   --highlight-size: 40px;
   --pseudo-element-display: block; /* Enable animation */
-  --skeleton-window-width: 0px; /* Set via JS, the width of the window */
-  --skeleton-percentage: 0%; /* Set via JS, the progress of the animation */
-  --skeleton-left: 0px; /* Set via JS, the global left position of the element */
-  --skeleton-top: 0px; /* Set via JS, the global top position of the element */
-  --skeleton-width: 0px; /* Set via JS, the width of the element */
 
   background-color: var(--base-color);
 
@@ -15,12 +10,13 @@
   overflow: hidden;
 }
 
+/* Should start at `0%` of the element's width (with the highlight hidden) and make it's way to 100% of the element's width based on the time it would take to get to the other end of the screen based on `skeleton-window-width` */
 .react-loading-skeleton::after {
   content: ' ';
   display: var(--pseudo-element-display);
   position: absolute;
   top: 0;
-  left: 0;
+  left: calc(0px - var(--highlight-size));
   width: var(--highlight-size);
   height: 100%;
   background-repeat: no-repeat;
@@ -33,7 +29,11 @@
       var(--base-color) 100%
     )
   );
-  transform: translateX(var(--skeleton-percentage));
+  transform: translateX(
+    calc(
+      var(--skeleton-window-width) * calc(var(--skeleton-percentage) / 100)
+    )
+  );
 }
 
 @media (prefers-reduced-motion) {
