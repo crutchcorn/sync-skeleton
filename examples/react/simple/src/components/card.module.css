@@ -1,36 +1,36 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 .image {
-    height: 104px;
-    width: 152px;
+  height: 104px;
+  width: 152px;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .lineHeight {
-    flex-basis: 25%;
+  flex-basis: 25%;
 }
 
 .lineOne {
-    width: 138px;
+  width: 138px;
 }
 
 .lineTwo {
-    width: 48px;
+  width: 48px;
 }
 
 .lineThree {
-    width: 64px;
+  width: 64px;
 }
 
 .lineFour {
-    width: 80px;
+  width: 80px;
 }

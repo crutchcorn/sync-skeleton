@@ -1,21 +1,29 @@
-import { useLayoutEffect, useState } from "react"
-import { useStore } from "@tanstack/react-store";
-import {  addComponent, getSkeletonObserver, percentageStore, removeComponent, setOptions, timingEffect, windowSizeEffect } from "@sync-skeleton/core";
-import type {SkeletonOptions} from "@sync-skeleton/core";
+import { useLayoutEffect, useState } from 'react'
+import { useStore } from '@tanstack/react-store'
+import {
+  addComponent,
+  getSkeletonObserver,
+  percentageStore,
+  removeComponent,
+  setOptions,
+  timingEffect,
+  windowSizeEffect,
+} from '@sync-skeleton/core'
+import type { SkeletonOptions } from '@sync-skeleton/core'
 
 export function useSkeletonSetup(options?: SkeletonOptions) {
   useLayoutEffect(() => {
-    if (!options) return;
+    if (!options) return
     setOptions(options)
   }, [options])
 
   useLayoutEffect(() => {
-    return windowSizeEffect.mount();
-  }, []);
+    return windowSizeEffect.mount()
+  }, [])
 
   useLayoutEffect(() => {
-    return timingEffect.mount();
-  }, []);
+    return timingEffect.mount()
+  }, [])
 }
 
 export const useSkeleton = () => {
@@ -25,7 +33,7 @@ export const useSkeleton = () => {
 
   useLayoutEffect(() => {
     if (!ref) return
-    ref.style.setProperty("--skeleton-percentage", `${percentageVal}`)
+    ref.style.setProperty('--skeleton-percentage', `${percentageVal}`)
   }, [ref, percentageVal])
 
   useLayoutEffect(() => {
@@ -37,7 +45,7 @@ export const useSkeleton = () => {
   }, [ref])
 
   useLayoutEffect(() => {
-    return getSkeletonObserver(ref);
+    return getSkeletonObserver(ref)
   }, [ref])
 
   return setRef

@@ -24,12 +24,18 @@
   width: var(--skeleton-highlight-size);
   height: 100%;
   background-repeat: no-repeat;
-  background-image:
-    linear-gradient(90deg,
-      transparent 0%,
-      var(--skeleton-highlight-color) 50%,
-      transparent 100%);
-  transform: translateX(calc((var(--skeleton-window-width) + var(--skeleton-highlight-size)) * calc(var(--skeleton-percentage) / 100) - var(--skeleton-left)));
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--skeleton-highlight-color) 50%,
+    transparent 100%
+  );
+  transform: translateX(
+    calc(
+      (var(--skeleton-window-width) + var(--skeleton-highlight-size)) *
+        calc(var(--skeleton-percentage) / 100) - var(--skeleton-left)
+    )
+  );
 }
 
 @media (prefers-reduced-motion) {
