@@ -9,12 +9,12 @@ export function Card() {
     const lineFour = useSkeleton();
 
     return <div className={styles.container}>
-        <div ref={image} className={styles.image} />
+        <div ref={image} className={`react-loading-skeleton ${styles.image}`} />
         <div className={styles.content}>
-            <div ref={lineOne} className={`${styles.lineHeight} ${styles.lineOne}`} />
-            <div ref={lineTwo} className={`${styles.lineHeight} ${styles.lineTwo}`} />
-            <div ref={lineThree} className={`${styles.lineHeight} ${styles.lineThree}`} />
-            <div ref={lineFour} className={`${styles.lineHeight} ${styles.lineFour}`} />
+            <div ref={lineOne} className={`react-loading-skeleton ${styles.lineHeight} ${styles.lineOne}`} />
+            <div ref={lineTwo} className={`react-loading-skeleton ${styles.lineHeight} ${styles.lineTwo}`} />
+            <div ref={lineThree} className={`react-loading-skeleton ${styles.lineHeight} ${styles.lineThree}`} />
+            <div ref={lineFour} className={`react-loading-skeleton ${styles.lineHeight} ${styles.lineFour}`} />
         </div>
     </div>
 }

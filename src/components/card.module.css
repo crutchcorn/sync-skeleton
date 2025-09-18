@@ -7,7 +7,6 @@
 .image {
     height: 104px;
     width: 152px;
-    background-color: lightgray;
 }
 
 .content {
@@ -18,7 +17,6 @@
 
 .lineHeight {
     flex-basis: 25%;
-    background-color: lightgray;
 }
 
 .lineOne {

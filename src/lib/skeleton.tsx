@@ -1,5 +1,6 @@
 import { createContext, useContext, useLayoutEffect, useState, type PropsWithChildren } from "react"
-import {Store} from "@tanstack/store";
+import { Store } from "@tanstack/store";
+import { useStore } from "@tanstack/react-store";
 
 const SkeletonContext = createContext({
   componentCount: 0,
@@ -30,7 +31,7 @@ export function SkeletonProvider({ children, animationDuration: propsDuration }:
     // Loop every `animationDuration` milliseconds so that the percentage goes from 0 to 100 repeatedly
     let start: number | null = null
     let frameId: number
-    
+
     const step = (timestamp: number) => {
       if (!start) start = timestamp
       const elapsed = timestamp - start
@@ -61,6 +62,13 @@ export const useSkeleton = () => {
   const context = useContext(SkeletonContext)
 
   const [ref, setRef] = useState<HTMLElement | null>(null)
+
+  const percentageVal = useStore(percentage)
+
+  useLayoutEffect(() => {
+    if (!ref) return
+    ref.style.setProperty("--skeleton-percentage", `${percentageVal}%`)
+  }, [ref, percentageVal])
 
   useLayoutEffect(() => {
     if (!ref) return
