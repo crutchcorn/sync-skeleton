@@ -1,13 +1,13 @@
 {
-  "name": "@sync-skeleton/react",
+  "name": "@sync-skeleton/vue",
   "version": "0.0.1",
-  "description": "Synchronized Skeleton Loader for React",
+  "description": "Synchronized Skeleton Loader for Vue",
   "author": "crutchcorn",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/crutchcorn/sync-skeleton.git",
-    "directory": "packages/react"
+    "directory": "packages/vue"
   },
   "homepage": "https://sync-skeleton.dev",
   "funding": {
@@ -50,18 +50,14 @@
   ],
   "dependencies": {
     "@sync-skeleton/core": "workspace:*",
-    "@tanstack/react-store": "^0.7.5"
+    "@tanstack/vue-store": "^0.7.5"
   },
   "devDependencies": {
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "@vitejs/plugin-react": "catalog:",
-    "eslint-plugin-react-compiler": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "vite": "catalog:"
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "catalog:",
+    "vue": "^3.5.13"
   },
   "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
+    "vue": "^3.4.0"
   }
 }

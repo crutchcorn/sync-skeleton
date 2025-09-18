@@ -7,3 +7,4 @@ A framework agnostic skeleton loader that supports syncing multiple elements' lo
 We support adapters for:
 
 - [React](./packages/react)
+- [Vue](./packages/vue)

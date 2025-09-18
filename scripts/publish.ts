@@ -16,6 +16,10 @@ await publish({
       name: '@sync-skeleton/react',
       packageDir: 'packages/react',
     },
+    {
+      name: '@sync-skeleton/vue',
+      packageDir: 'packages/vue',
+    },
   ],
   branchConfigs: {
     main: {
