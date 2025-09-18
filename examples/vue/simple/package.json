@@ -10,8 +10,8 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@sync-skeleton/core": "workspace:*",
-    "@sync-skeleton/vue": "workspace:*",
+    "@sync-skeleton/core": "^0.0.1",
+    "@sync-skeleton/vue": "^0.0.1",
     "vue": "^3.5.13"
   },
   "devDependencies": {
