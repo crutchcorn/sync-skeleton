@@ -1,0 +1,11 @@
+codecov:
+  max_report_age: off
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 1%
+ignore:
+  - 'packages/form-devtools'
+  - 'packages/react-form-devtools'

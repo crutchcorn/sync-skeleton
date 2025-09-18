@@ -1,4 +1,4 @@
-import { useSkeleton } from "../lib/react";
+import { useSkeleton } from "@sync-skeleton/react";
 import styles from "./card.module.css";
 
 export function Card() {

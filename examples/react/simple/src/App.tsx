@@ -1,6 +1,6 @@
 import { Card } from "./components/card"
-import { useSkeletonSetup } from "./lib/react"
-import "./skeleton.css"
+import { useSkeletonSetup } from "@sync-skeleton/react"
+import "@sync-skeleton/core/skeleton.css"
 
 function App() {
   useSkeletonSetup();

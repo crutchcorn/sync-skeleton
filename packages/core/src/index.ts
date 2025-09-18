@@ -53,6 +53,7 @@ let frameId: number;
 export const timingEffect = new Effect({
     deps: [renderedComponents, animationDurationStore],
     fn: () => {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (frameId !== undefined) {
             cancelAnimationFrame(frameId)
         }
@@ -105,7 +106,7 @@ export function getSkeletonObserver(ref: HTMLElement | null) {
     const observer = new ResizeObserver((entries) => {
         const rect = ref.getBoundingClientRect()
         ref.style.setProperty("--skeleton-left", `${rect.left}px`)
-        for (let entry of entries) {
+        for (const entry of entries) {
             const width = entry.contentRect.width
             ref.style.setProperty("--skeleton-width", `${width}px`)
         }

@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@sync-skeleton/core": ["../core/src"]
+    }
+  },
+  "exclude": ["tests", "eslint.config.js", "vite.config.ts"]
+}

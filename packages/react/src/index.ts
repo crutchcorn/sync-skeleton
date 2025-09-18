@@ -1,6 +1,7 @@
 import { useLayoutEffect, useState } from "react"
 import { useStore } from "@tanstack/react-store";
-import { addComponent, getSkeletonObserver, percentageStore, removeComponent, setOptions, timingEffect, windowSizeEffect, type SkeletonOptions } from "./core";
+import {  addComponent, getSkeletonObserver, percentageStore, removeComponent, setOptions, timingEffect, windowSizeEffect } from "@sync-skeleton/core";
+import type {SkeletonOptions} from "@sync-skeleton/core";
 
 export function useSkeletonSetup(options?: SkeletonOptions) {
   useLayoutEffect(() => {
