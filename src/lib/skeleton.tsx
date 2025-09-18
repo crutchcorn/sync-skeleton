@@ -1,4 +1,5 @@
-import { createContext, useContext, useLayoutEffect, useState } from "react"
+import { createContext, useContext, useLayoutEffect, useState, type PropsWithChildren } from "react"
+import {Store} from "@tanstack/store";
 
 const SkeletonContext = createContext({
   componentCount: 0,
@@ -6,15 +7,48 @@ const SkeletonContext = createContext({
   removeComponent: () => { }
 })
 
-export function SkeletonProvider({ children }: { children: React.ReactNode }) {
+const percentage = new Store(0);
+
+interface SkeletonProviderProps {
+  animationDuration?: number; // in milliseconds
+}
+
+export function SkeletonProvider({ children, animationDuration: propsDuration }: PropsWithChildren<SkeletonProviderProps>) {
   const [componentCount, setComponentCount] = useState(0)
+
+  const animationDuration = propsDuration ?? 2000
 
   const addComponent = () => setComponentCount(count => count + 1)
   const removeComponent = () => setComponentCount(count => Math.max(0, count - 1))
 
-  // Start a timer when the first component is added
-  // Stop the timer when the last component is removed
-  // Do not expose the timer to the context, instead make it a global singleton
+  useLayoutEffect(() => {
+    if (componentCount === 0) {
+      return
+    }
+
+    // Count to 100 in `animationDuration` milliseconds, updating the percentage store
+    // Loop every `animationDuration` milliseconds so that the percentage goes from 0 to 100 repeatedly
+    let start: number | null = null
+    let frameId: number
+    
+    const step = (timestamp: number) => {
+      if (!start) start = timestamp
+      const elapsed = timestamp - start
+      const progress = Math.min(elapsed / animationDuration, 1)
+      percentage.setState(() => progress * 100)
+      if (elapsed < animationDuration) {
+        frameId = requestAnimationFrame(step)
+      } else {
+        start = null
+        frameId = requestAnimationFrame(step)
+      }
+    }
+
+    frameId = requestAnimationFrame(step)
+    return () => {
+      cancelAnimationFrame(frameId)
+    }
+  }, [componentCount, animationDuration])
 
   return (
     <SkeletonContext.Provider value={{ componentCount, addComponent, removeComponent }}>
