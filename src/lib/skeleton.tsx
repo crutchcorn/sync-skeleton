@@ -26,16 +26,32 @@ export function SkeletonProvider({ children }: { children: React.ReactNode }) {
 export const useSkeleton = () => {
   const context = useContext(SkeletonContext)
 
-  if (!context) {
-    throw new Error("useSkeleton must be used within a SkeletonProvider")
-  }
+  const [ref, setRef] = useState<HTMLElement | null>(null)
 
   useLayoutEffect(() => {
+    if (!ref) return
     context.addComponent()
     return () => {
       context.removeComponent()
     }
-  })
+  }, [ref, context])
 
-  return context
+  // Get the element's `left` position on the page and set it as a CSS variable; change it using a ResizeObserver
+  useLayoutEffect(() => {
+    if (!ref) return
+    const observer = new ResizeObserver((entries) => {
+      const rect = ref.getBoundingClientRect()
+      ref.style.setProperty("--skeleton-left", `${rect.left}px`)
+      for (let entry of entries) {
+        const width = entry.contentRect.width
+        ref.style.setProperty("--skeleton-width", `${width}px`)
+      }
+    })
+    observer.observe(ref)
+    return () => {
+      observer.disconnect()
+    }
+  }, [ref])
+
+  return setRef
 }
