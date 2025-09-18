@@ -90,7 +90,6 @@ export const useSkeleton = () => {
     const observer = new ResizeObserver((entries) => {
       const rect = ref.getBoundingClientRect()
       ref.style.setProperty("--skeleton-left", `${rect.left}px`)
-      ref.style.setProperty("--skeleton-top", `${rect.top}px`)
       for (let entry of entries) {
         const width = entry.contentRect.width
         ref.style.setProperty("--skeleton-width", `${width}px`)

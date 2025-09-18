@@ -1,6 +1,6 @@
 .react-loading-skeleton {
   --base-color: #ebebeb;
-  --highlight-color: red;
+  --highlight-color: #f5f5f5;
   --highlight-size: 40px;
   --pseudo-element-display: block; /* Enable animation */
 
@@ -31,7 +31,7 @@
   );
   transform: translateX(
     calc(
-      var(--skeleton-window-width) * calc(var(--skeleton-percentage) / 100)
+      (var(--skeleton-window-width) + var(--highlight-size)) * calc(var(--skeleton-percentage) / 100) - var(--skeleton-left)
     )
   );
 }
