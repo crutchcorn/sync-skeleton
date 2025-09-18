@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.image {
+    height: 104px;
+    width: 152px;
+    background-color: lightgray;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.lineHeight {
+    flex-basis: 25%;
+    background-color: lightgray;
+}
+
+.lineOne {
+    width: 138px;
+}
+
+.lineTwo {
+    width: 48px;
+}
+
+.lineThree {
+    width: 64px;
+}
+
+.lineFour {
+    width: 80px;
+}
