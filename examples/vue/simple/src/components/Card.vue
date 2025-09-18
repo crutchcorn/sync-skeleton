@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useSkeleton } from '@sync-skeleton/vue';
+import { useSkeleton } from '@sync-skeleton/vue'
 
 const image = useSkeleton()
 const lineOne = useSkeleton()
