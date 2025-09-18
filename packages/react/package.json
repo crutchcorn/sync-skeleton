@@ -9,7 +9,7 @@
     "url": "https://github.com/crutchcorn/sync-skeleton.git",
     "directory": "packages/react"
   },
-  "homepage": "https://example.com/",
+  "homepage": "https://sync-skeleton.dev",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/crutchcorn"
