@@ -30,8 +30,6 @@
     "dev": "pnpm run watch",
     "prettier": "prettier --ignore-unknown .",
     "prettier:write": "pnpm run prettier --write",
-    "docs:generate": "node scripts/generateDocs.ts",
-    "verify-links": "node scripts/verify-links.ts",
     "cipublish": "node scripts/publish.ts"
   },
   "nx": {

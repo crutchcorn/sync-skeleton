@@ -33,17 +33,11 @@ jobs:
         run: pnpm run test:ci --parallel=3
       - name: Publish
         run: |
-          git config --global user.name 'Tanner Linsley'
-          git config --global user.email 'tannerlinsley@users.noreply.github.com'
+          git config --global user.name 'Corbin Crutchley'
+          git config --global user.email 'git@crutchcorn.dev'
           npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
           pnpm run cipublish
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           TAG: ${{ inputs.tag }}
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          directory: packages
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

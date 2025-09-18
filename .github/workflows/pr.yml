@@ -31,12 +31,6 @@ jobs:
           main-branch-name: main
       - name: Run Checks
         run: pnpm run test:pr --parallel=3
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          directory: packages
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   preview:
     name: Preview
     runs-on: ubuntu-latest

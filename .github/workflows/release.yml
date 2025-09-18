@@ -16,7 +16,7 @@ permissions:
 jobs:
   release:
     name: Release
-    if: github.repository_owner == 'TanStack'
+    if: github.repository_owner == 'crutchcorn'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
