@@ -1,7 +1,7 @@
 {
   "name": "@sync-skeleton/react",
   "version": "0.0.1",
-  "description": "",
+  "description": "Synchronized Skeleton Loader for React",
   "author": "crutchcorn",
   "license": "MIT",
   "repository": {

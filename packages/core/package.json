@@ -1,7 +1,7 @@
 {
   "name": "@sync-skeleton/core",
   "version": "0.0.1",
-  "description": "",
+  "description": "Synchronized Skeleton Loader",
   "author": "crutchcorn",
   "license": "MIT",
   "repository": {
