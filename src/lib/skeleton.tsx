@@ -35,14 +35,9 @@ export function SkeletonProvider({ children, animationDuration: propsDuration }:
     const step = (timestamp: number) => {
       if (!start) start = timestamp
       const elapsed = timestamp - start
-      const progress = Math.min(elapsed / animationDuration, 1)
+      const progress = (elapsed % animationDuration) / animationDuration
       percentage.setState(() => progress * 100)
-      if (elapsed < animationDuration) {
-        frameId = requestAnimationFrame(step)
-      } else {
-        start = null
-        frameId = requestAnimationFrame(step)
-      }
+      frameId = requestAnimationFrame(step)
     }
 
     frameId = requestAnimationFrame(step)
@@ -50,6 +45,17 @@ export function SkeletonProvider({ children, animationDuration: propsDuration }:
       cancelAnimationFrame(frameId)
     }
   }, [componentCount, animationDuration])
+
+  useLayoutEffect(() => {
+    const setWindowSize = () => {
+      document.body.style.setProperty("--skeleton-window-width", `${window.innerWidth}px`)
+    }
+    setWindowSize()
+    window.addEventListener("resize", setWindowSize)
+    return () => {
+      window.removeEventListener("resize", setWindowSize)
+    }
+  }, [])
 
   return (
     <SkeletonContext.Provider value={{ componentCount, addComponent, removeComponent }}>
@@ -84,6 +90,7 @@ export const useSkeleton = () => {
     const observer = new ResizeObserver((entries) => {
       const rect = ref.getBoundingClientRect()
       ref.style.setProperty("--skeleton-left", `${rect.left}px`)
+      ref.style.setProperty("--skeleton-top", `${rect.top}px`)
       for (let entry of entries) {
         const width = entry.contentRect.width
         ref.style.setProperty("--skeleton-width", `${width}px`)

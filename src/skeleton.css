@@ -1,8 +1,13 @@
 .react-loading-skeleton {
   --base-color: #ebebeb;
   --highlight-color: #f5f5f5;
-  --animation-direction: normal;
+  --highlight-size: 40px;
   --pseudo-element-display: block; /* Enable animation */
+  --skeleton-window-width: 0px; /* Set via JS, the width of the window */
+  --skeleton-percentage: 0%; /* Set via JS, the progress of the animation */
+  --skeleton-left: 0px; /* Set via JS, the global left position of the element */
+  --skeleton-top: 0px; /* Set via JS, the global top position of the element */
+  --skeleton-width: 0px; /* Set via JS, the width of the element */
 
   background-color: var(--base-color);
 
@@ -16,7 +21,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
+  width: var(--highlight-size);
   height: 100%;
   background-repeat: no-repeat;
   background-image: var(
