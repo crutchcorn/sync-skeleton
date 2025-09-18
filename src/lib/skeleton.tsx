@@ -11,13 +11,14 @@ const SkeletonContext = createContext({
 const percentage = new Store(0);
 
 interface SkeletonProviderProps {
-  animationDuration?: number; // in milliseconds
+  animationSpeed?: number; // pixels per second (default: 400)
 }
 
-export function SkeletonProvider({ children, animationDuration: propsDuration }: PropsWithChildren<SkeletonProviderProps>) {
+export function SkeletonProvider({ children, animationSpeed: propsSpeed }: PropsWithChildren<SkeletonProviderProps>) {
   const [componentCount, setComponentCount] = useState(0)
+  const [animationDuration, setAnimationDuration] = useState(2000)
 
-  const animationDuration = propsDuration ?? 2000
+  const speed = propsSpeed ?? 400 // pixels per second
 
   const addComponent = () => setComponentCount(count => count + 1)
   const removeComponent = () => setComponentCount(count => Math.max(0, count - 1))
@@ -48,14 +49,20 @@ export function SkeletonProvider({ children, animationDuration: propsDuration }:
 
   useLayoutEffect(() => {
     const setWindowSize = () => {
-      document.body.style.setProperty("--skeleton-window-width", `${window.innerWidth}px`)
+      const windowWidth = window.innerWidth
+      document.body.style.setProperty("--skeleton-window-width", `${windowWidth}px`)
+      // Calculate duration based on window width and speed: distance / speed * 1000 (to convert to ms)
+      // We add highlight size to the distance to account for the full travel
+      const distance = windowWidth + 40 // 40px is the default highlight size
+      const calculatedDuration = (distance / speed) * 1000
+      setAnimationDuration(calculatedDuration)
     }
     setWindowSize()
     window.addEventListener("resize", setWindowSize)
     return () => {
       window.removeEventListener("resize", setWindowSize)
     }
-  }, [])
+  }, [speed])
 
   return (
     <SkeletonContext.Provider value={{ componentCount, addComponent, removeComponent }}>
