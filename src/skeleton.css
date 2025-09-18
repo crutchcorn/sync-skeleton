@@ -1,43 +1,39 @@
-.react-loading-skeleton {
-  --base-color: #ebebeb;
-  --highlight-color: #f5f5f5;
-  --highlight-size: 40px;
-  --pseudo-element-display: block; /* Enable animation */
+:root {
+  --skeleton-base-color: #ebebeb;
+  --skeleton-highlight-color: #f5f5f5;
+  --skeleton-highlight-size: 40px;
+  --skeleton-pseudo-element-display: block;
+  /* Replaced by JS */
+  --skeleton-window-width: 0px;
+  --skeleton-left: 0px;
+  --skeleton-percentage: 0;
+}
 
-  background-color: var(--base-color);
-
+.loading-skeleton {
+  background-color: var(--skeleton-base-color);
   position: relative;
   overflow: hidden;
 }
 
-/* Should start at `0%` of the element's width (with the highlight hidden) and make it's way to 100% of the element's width based on the time it would take to get to the other end of the screen based on `skeleton-window-width` */
-.react-loading-skeleton::after {
+.loading-skeleton::after {
   content: ' ';
-  display: var(--pseudo-element-display);
+  display: var(--skeleton-pseudo-element-display);
   position: absolute;
   top: 0;
-  left: calc(0px - var(--highlight-size));
-  width: var(--highlight-size);
+  left: calc(0px - var(--skeleton-highlight-size));
+  width: var(--skeleton-highlight-size);
   height: 100%;
   background-repeat: no-repeat;
-  background-image: var(
-    --custom-highlight-background,
-    linear-gradient(
-      90deg,
-      var(--base-color) 0%,
-      var(--highlight-color) 50%,
-      var(--base-color) 100%
-    )
-  );
-  transform: translateX(
-    calc(
-      (var(--skeleton-window-width) + var(--highlight-size)) * calc(var(--skeleton-percentage) / 100) - var(--skeleton-left)
-    )
-  );
+  background-image:
+    linear-gradient(90deg,
+      transparent 0%,
+      var(--skeleton-highlight-color) 50%,
+      transparent 100%);
+  transform: translateX(calc((var(--skeleton-window-width) + var(--skeleton-highlight-size)) * calc(var(--skeleton-percentage) / 100) - var(--skeleton-left)));
 }
 
 @media (prefers-reduced-motion) {
-  .react-loading-skeleton {
-    --pseudo-element-display: none; /* Disable animation */
+  .loading-skeleton {
+    --skeleton-pseudo-element-display: none;
   }
 }
