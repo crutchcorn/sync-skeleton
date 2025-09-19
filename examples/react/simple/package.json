@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@sync-skeleton/core": "^0.0.3",
-    "@sync-skeleton/react": "^0.0.3",
+    "@sync-skeleton/react": "^0.0.4",
     "react": "catalog:",
     "react-dom": "catalog:"
   },
