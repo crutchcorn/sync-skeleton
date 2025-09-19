@@ -6,19 +6,17 @@ A modern skeleton loader that supports syncing multiple elements' loading indica
 
 ## Installation
 
-```tsx
-import { useSkeletonSetup } from "@sync-skeleton/react"
+The only prerequisite to using this package is the CSS file. Import it in your project via TypeScript:
+
+```typescript
 // Required for usage
 import "@sync-skeleton/core/skeleton.css"
+```
 
-export function App() {
-  // Required in the root component for usage
-  useSkeletonSetup();
+Or via HTML:
 
-  return (
-    // ...
-  )
-}
+```html
+<link rel="stylesheet" href="node_modules/@sync-skeleton/core/skeleton.css" />
 ```
 
 ## Usage

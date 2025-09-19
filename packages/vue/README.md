@@ -6,15 +6,17 @@ A modern skeleton loader that supports syncing multiple elements' loading indica
 
 ## Installation
 
-```vue
-<script setup lang="ts">
-import { useSkeletonSetup } from '@sync-skeleton/vue'
+The only prerequisite to using this package is the CSS file. Import it in your project via TypeScript:
+
+```typescript
 // Required for usage
 import '@sync-skeleton/core/skeleton.css'
+```
 
-// Required in the root component for usage
-useSkeletonSetup()
-</script>
+Or via HTML:
+
+```html
+<link rel="stylesheet" href="node_modules/@sync-skeleton/core/skeleton.css" />
 ```
 
 ## Usage
