@@ -118,10 +118,10 @@ importers:
   examples/react/simple:
     dependencies:
       '@sync-skeleton/core':
-        specifier: ^0.0.1
+        specifier: ^0.0.2
         version: link:../../../packages/core
       '@sync-skeleton/react':
-        specifier: ^0.0.1
+        specifier: ^0.0.2
         version: link:../../../packages/react
       react:
         specifier: 'catalog:'
@@ -146,10 +146,10 @@ importers:
   examples/vue/simple:
     dependencies:
       '@sync-skeleton/core':
-        specifier: ^0.0.1
+        specifier: ^0.0.2
         version: link:../../../packages/core
       '@sync-skeleton/vue':
-        specifier: ^0.0.1
+        specifier: ^0.0.2
         version: link:../../../packages/vue
       vue:
         specifier: ^3.5.13
