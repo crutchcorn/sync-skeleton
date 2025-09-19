@@ -1,28 +1,24 @@
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { useStore } from '@tanstack/react-store'
 import {
-  addComponent,
   getSkeletonObserver,
   percentageStore,
-  removeComponent,
   setOptions,
-  timingEffect,
   windowSizeEffect,
 } from '@sync-skeleton/core'
 import type { SkeletonOptions } from '@sync-skeleton/core'
 
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect
+
 export function useSkeletonSetup(options?: SkeletonOptions) {
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!options) return
     setOptions(options)
   }, [options])
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     return windowSizeEffect.mount()
-  }, [])
-
-  useLayoutEffect(() => {
-    return timingEffect.mount()
   }, [])
 }
 
@@ -31,20 +27,12 @@ export const useSkeleton = () => {
 
   const percentageVal = useStore(percentageStore)
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!ref) return
     ref.style.setProperty('--skeleton-percentage', `${percentageVal}`)
   }, [ref, percentageVal])
 
-  useLayoutEffect(() => {
-    if (!ref) return
-    addComponent()
-    return () => {
-      removeComponent()
-    }
-  }, [ref])
-
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     return getSkeletonObserver(ref)
   }, [ref])
 

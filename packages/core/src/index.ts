@@ -1,7 +1,6 @@
 import { Effect, Store } from '@tanstack/store'
 
 export const percentageStore = new Store(0)
-const renderedComponents = new Store(0)
 const animationDurationStore = new Store(2000) // in milliseconds
 
 export interface SkeletonOptions {
@@ -19,18 +18,6 @@ const defaultOptions: SkeletonOptions = {
 }
 
 const optionsStore = new Store(defaultOptions as Required<SkeletonOptions>)
-
-export function addComponent() {
-  renderedComponents.setState((count) => count + 1)
-}
-
-export function removeComponent() {
-  renderedComponents.setState((count) => Math.max(0, count - 1))
-}
-
-function setAnimationDuration(duration: number) {
-  animationDurationStore.setState(duration)
-}
 
 export function setOptions(options: SkeletonOptions) {
   optionsStore.setState(() => {
@@ -66,38 +53,6 @@ export function setOptions(options: SkeletonOptions) {
   })
 }
 
-let frameId: number
-export const timingEffect = new Effect({
-  deps: [renderedComponents, animationDurationStore],
-  fn: () => {
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    if (frameId !== undefined) {
-      cancelAnimationFrame(frameId)
-    }
-    const componentCount = renderedComponents.state
-    const animationDuration = animationDurationStore.state
-
-    if (componentCount === 0) {
-      return
-    }
-
-    // Count to 100 in `animationDuration` milliseconds, updating the percentage store
-    // Loop every `animationDuration` milliseconds so that the percentage goes from 0 to 100 repeatedly
-    let start: number | null = null
-
-    const step = (timestamp: number) => {
-      if (!start) start = timestamp
-      const elapsed = timestamp - start
-      const progress = (elapsed % animationDuration) / animationDuration
-      percentageStore.setState(() => progress * 100)
-      frameId = requestAnimationFrame(step)
-    }
-
-    frameId = requestAnimationFrame(step)
-  },
-  eager: true,
-})
-
 const setWindowSize = () => {
   const windowWidth = window.innerWidth
   document.body.style.setProperty('--skeleton-window-width', `${windowWidth}px`)
@@ -106,7 +61,8 @@ const setWindowSize = () => {
   const distance = windowWidth + optionsStore.state.highlightSize
   const calculatedDuration =
     (distance / optionsStore.state.animationSpeed) * 1000
-  setAnimationDuration(calculatedDuration)
+  animationDurationStore.setState(() => calculatedDuration)
+  document.body.style.setProperty('--skeleton-animation-duration', `${calculatedDuration}ms`)
 }
 
 export const windowSizeEffect = new Effect({

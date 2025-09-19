@@ -7,6 +7,7 @@
   --skeleton-window-width: 0px;
   --skeleton-left: 0px;
   --skeleton-percentage: 0;
+  --skeleton-animation-duration: 2s;
 }
 
 .loading-skeleton {
@@ -36,10 +37,26 @@
         calc(var(--skeleton-percentage) / 100) - var(--skeleton-left)
     )
   );
+  animation: var(--skeleton-animation-duration) skeletonPercent infinite;
 }
 
 @media (prefers-reduced-motion) {
   .loading-skeleton {
     --skeleton-pseudo-element-display: none;
+  }
+}
+
+@property --skeleton-percentage {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
+@keyframes skeletonPercent {
+  0% {
+    --skeleton-percentage: 0;
+  }
+  100% {
+    --skeleton-percentage: 100;
   }
 }

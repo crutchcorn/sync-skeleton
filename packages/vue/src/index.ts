@@ -1,12 +1,9 @@
 import { onMounted, onUnmounted, ref, watch, watchEffect } from 'vue'
 import { useStore } from '@tanstack/vue-store'
 import {
-  addComponent,
   getSkeletonObserver,
   percentageStore,
-  removeComponent,
   setOptions,
-  timingEffect,
   windowSizeEffect,
 } from '@sync-skeleton/core'
 import type { SkeletonOptions } from '@sync-skeleton/core'
@@ -23,15 +20,12 @@ export function useSkeletonSetup(optionsFn = () => ({}) as SkeletonOptions) {
   )
 
   let windowEffectCleanup: () => void
-  let timingEffectCleanup: () => void
   onMounted(() => {
     windowEffectCleanup = windowSizeEffect.mount()
-    timingEffectCleanup = timingEffect.mount()
   })
 
   onUnmounted(() => {
     windowEffectCleanup()
-    timingEffectCleanup()
   })
 }
 
@@ -46,14 +40,6 @@ export const useSkeleton = () => {
       '--skeleton-percentage',
       `${percentageVal.value}`,
     )
-  })
-
-  onMounted(() => {
-    addComponent()
-  })
-
-  onUnmounted(() => {
-    removeComponent()
   })
 
   watch(elRef, (_value, _oldValue, onCleanup) => {
