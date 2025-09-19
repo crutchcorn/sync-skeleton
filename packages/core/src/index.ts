@@ -62,7 +62,10 @@ const setWindowSize = () => {
   const calculatedDuration =
     (distance / optionsStore.state.animationSpeed) * 1000
   animationDurationStore.setState(() => calculatedDuration)
-  document.body.style.setProperty('--skeleton-animation-duration', `${calculatedDuration}ms`)
+  document.body.style.setProperty(
+    '--skeleton-animation-duration',
+    `${calculatedDuration}ms`,
+  )
 }
 
 export const windowSizeEffect = new Effect({
