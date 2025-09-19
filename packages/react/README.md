@@ -10,7 +10,7 @@ The only prerequisite to using this package is the CSS file. Import it in your p
 
 ```typescript
 // Required for usage
-import "@sync-skeleton/core/skeleton.css"
+import '@sync-skeleton/core/skeleton.css'
 ```
 
 Or via HTML:
