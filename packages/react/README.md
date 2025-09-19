@@ -26,7 +26,7 @@ import { useSkeleton } from '@sync-skeleton/react'
 import styles from './element.module.css'
 
 export function Element() {
-  // Use the hoof to get a ref to the element, this establishes the CSS properties needed for the class to work
+  // Use the hook to get a ref to the element, this establishes the CSS properties needed for the class to work
   const ourEl = useSkeleton()
 
   return (
