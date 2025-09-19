@@ -9,8 +9,8 @@
     "test:types": "tsc"
   },
   "dependencies": {
-    "@sync-skeleton/core": "^0.0.2",
-    "@sync-skeleton/react": "^0.0.2",
+    "@sync-skeleton/core": "^0.0.3",
+    "@sync-skeleton/react": "^0.0.3",
     "react": "catalog:",
     "react-dom": "catalog:"
   },
