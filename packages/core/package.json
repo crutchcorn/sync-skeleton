@@ -49,8 +49,5 @@
     "dist",
     "src",
     "skeleton.css"
-  ],
-  "dependencies": {
-    "@tanstack/store": "^0.7.5"
-  }
+  ]
 }

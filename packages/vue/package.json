@@ -49,8 +49,7 @@
     "src"
   ],
   "dependencies": {
-    "@sync-skeleton/core": "workspace:*",
-    "@tanstack/vue-store": "^0.7.5"
+    "@sync-skeleton/core": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",

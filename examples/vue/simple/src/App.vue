@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { useSkeletonSetup } from '@sync-skeleton/vue'
 import '@sync-skeleton/core/skeleton.css'
 import Card from './components/Card.vue'
-
-useSkeletonSetup()
 </script>
 
 <template>

@@ -49,16 +49,13 @@
     "src"
   ],
   "dependencies": {
-    "@sync-skeleton/core": "workspace:*",
-    "@tanstack/react-store": "^0.7.5"
+    "@sync-skeleton/core": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "eslint-plugin-react-compiler": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:",
     "vite": "catalog:"
   },
   "peerDependencies": {
