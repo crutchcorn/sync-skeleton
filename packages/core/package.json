@@ -14,6 +14,19 @@
     "type": "github",
     "url": "https://github.com/sponsors/crutchcorn"
   },
+  "keywords": [
+    "skeleton",
+    "skeleton-loader",
+    "placeholder",
+    "animation",
+    "loading",
+    "loader",
+    "ui",
+    "component",
+    "react",
+    "vue",
+    "svelte"
+  ],
   "scripts": {
     "clean": "premove ./dist ./coverage",
     "test:eslint": "eslint ./src",
