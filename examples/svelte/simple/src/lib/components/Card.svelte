@@ -1,23 +1,24 @@
-<script setup lang="ts">
+<script lang="ts">
+  
 </script>
 
-<template>
-  <div class="cardContainer">
-    <div class="loading-skeleton image" />
-    <div class="content">
-      <div class="loading-skeleton lineHeight lineOne">
-        lorem ipsum dolor sit amet
-      </div>
-      <div class="loading-skeleton lineHeight lineTwo" />
-      <footer class="footer">
-        <div class="loading-skeleton circle" />
-        <div class="loading-skeleton lineHeight lineFour" />
-      </footer>
-    </div>
+<div class="cardContainer">
+  <div class="loading-skeleton image">
   </div>
-</template>
-
-
+  <div class="content">
+    <div class="loading-skeleton lineHeight lineOne">
+      lorem ipsum dolor sit amet
+    </div>
+    <div class="loading-skeleton lineHeight lineTwo">
+    </div>
+    <footer class="footer">
+      <div class="loading-skeleton circle">
+      </div>
+      <div class="loading-skeleton lineHeight lineFour">
+      </div>
+    </footer>
+  </div>
+</div>
 
 <style scoped>
 .cardContainer {

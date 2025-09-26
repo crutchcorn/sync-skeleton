@@ -1,5 +1,6 @@
-import { Card } from './components/card'
 import '@sync-skeleton/core/skeleton.css'
+import './index.css'
+import { Card } from './components/card'
 
 function App() {
   return (

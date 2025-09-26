@@ -63,5 +63,10 @@
   "dependencies": {
     "@changesets/cli": "^2.29.7",
     "@svitejs/changesets-changelog-github-compact": "^1.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

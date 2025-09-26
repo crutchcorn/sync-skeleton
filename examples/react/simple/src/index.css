@@ -1,0 +1,5 @@
+:root {
+  color-scheme: light dark;
+  background-color: light-dark(white, hsl(0 0% 10%));
+  color: light-dark(black, white);
+}

@@ -12,6 +12,7 @@
 .content {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 0.5rem;
 }
 
@@ -20,17 +21,27 @@
 }
 
 .lineOne {
-  width: 138px;
+  width: auto;
 }
 
 .lineTwo {
   width: 48px;
 }
 
-.lineThree {
-  width: 64px;
+.circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
 }
 
 .lineFour {
-  width: 80px;
+  flex-basis: 75%;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  width: 120px;
+  gap: 0.5rem;
+  margin-block-start: auto;
 }

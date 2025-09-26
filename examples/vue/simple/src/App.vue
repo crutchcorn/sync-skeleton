@@ -16,6 +16,12 @@ import Card from './components/Card.vue'
 </template>
 
 <style scoped>
+:global(:root) {
+  color-scheme: light dark;
+  background-color: light-dark(white, hsl(0 0% 10%));
+  color: light-dark(black, white);
+}
+
 .container {
   display: flex;
   flex-direction: column;

@@ -1,33 +1,24 @@
-import { useSkeleton } from '@sync-skeleton/react'
 import styles from './card.module.css'
 
 export function Card() {
-  const image = useSkeleton()
-  const lineOne = useSkeleton()
-  const lineTwo = useSkeleton()
-  const lineThree = useSkeleton()
-  const lineFour = useSkeleton()
-
   return (
     <div className={styles.container}>
-      <div ref={image} className={`loading-skeleton ${styles.image}`} />
+      <div className={`loading-skeleton ${styles.image}`} />
       <div className={styles.content}>
         <div
-          ref={lineOne}
           className={`loading-skeleton ${styles.lineHeight} ${styles.lineOne}`}
-        />
+        >
+          lorem ipsum dolor sit amet
+        </div>
         <div
-          ref={lineTwo}
           className={`loading-skeleton ${styles.lineHeight} ${styles.lineTwo}`}
         />
-        <div
-          ref={lineThree}
-          className={`loading-skeleton ${styles.lineHeight} ${styles.lineThree}`}
-        />
-        <div
-          ref={lineFour}
-          className={`loading-skeleton ${styles.lineHeight} ${styles.lineFour}`}
-        />
+        <footer className={styles.footer}>
+          <div className={`loading-skeleton ${styles.circle}`} />
+          <div
+            className={`loading-skeleton ${styles.lineHeight} ${styles.lineFour}`}
+          />
+        </footer>
       </div>
     </div>
   )
