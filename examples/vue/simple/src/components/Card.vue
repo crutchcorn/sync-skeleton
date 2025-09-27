@@ -1,30 +1,37 @@
 <script setup lang="ts">
-import { useSkeleton } from '@sync-skeleton/vue'
+import { defineProps } from 'vue'
 
-const image = useSkeleton()
-const lineOne = useSkeleton()
-const lineTwo = useSkeleton()
-const lineThree = useSkeleton()
-const lineFour = useSkeleton()
+const props = defineProps({
+  dark: Boolean,
+})
 </script>
 
 <template>
-  <div class="cardContainer">
-    <div ref="image" class="loading-skeleton image" />
+  <div class="cardContainer" :class="{ dark: props.dark }">
+    <div class="loading-skeleton image" />
     <div class="content">
-      <div ref="lineOne" class="loading-skeleton lineHeight lineOne" />
-      <div ref="lineTwo" class="loading-skeleton lineHeight lineTwo" />
-      <div ref="lineThree" class="loading-skeleton lineHeight lineThree" />
-      <div ref="lineFour" class="loading-skeleton lineHeight lineFour" />
+      <div class="loading-skeleton lineHeight lineOne">
+        lorem ipsum dolor sit amet
+      </div>
+      <div class="loading-skeleton lineHeight lineTwo" />
+      <footer class="footer">
+        <div class="loading-skeleton circle" />
+        <div class="loading-skeleton lineHeight lineFour" />
+      </footer>
     </div>
   </div>
 </template>
 
 <style scoped>
 .cardContainer {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   gap: 1rem;
+  padding: 1rem;
+  &.dark {
+    color-scheme: dark;
+    background-color: hsl(0 0% 10% / 100%);
+  }
 }
 
 .image {
@@ -35,6 +42,7 @@ const lineFour = useSkeleton()
 .content {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 0.5rem;
 }
 
@@ -43,18 +51,28 @@ const lineFour = useSkeleton()
 }
 
 .lineOne {
-  width: 138px;
+  width: auto;
 }
 
 .lineTwo {
   width: 48px;
 }
 
-.lineThree {
-  width: 64px;
+.lineFour {
+  flex-basis: 75%;
 }
 
-.lineFour {
-  width: 80px;
+.footer {
+  display: flex;
+  flex-direction: row;
+  width: 120px;
+  gap: 0.5rem;
+  margin-block-start: auto;
+}
+
+.circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
 }
 </style>
