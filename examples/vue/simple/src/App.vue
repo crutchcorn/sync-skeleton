@@ -7,10 +7,10 @@ import Card from './components/Card.vue'
   <div class="container">
     <Card />
     <div class="card2">
-      <Card />
+      <Card dark />
     </div>
     <div class="card3">
-      <Card />
+      <Card class="orange-purple-loader" />
     </div>
   </div>
 </template>
@@ -20,6 +20,14 @@ import Card from './components/Card.vue'
   color-scheme: light dark;
   background-color: light-dark(white, hsl(0 0% 10%));
   color: light-dark(black, white);
+  --skeleton-radius: 4px;
+}
+
+.orange-purple-loader {
+  --skeleton-base-color: tomato;
+  --skeleton-highlight-color: darkred;
+  --skeleton-base-color-dark: darkslateblue;
+  --skeleton-highlight-color-dark: indigo;
 }
 
 .container {
@@ -29,10 +37,10 @@ import Card from './components/Card.vue'
 }
 
 .card2 {
-  margin-left: 16px;
+  margin-left: 10rem;
 }
 
 .card3 {
-  margin-left: 32px;
+  margin-left: 20rem;
 }
 </style>

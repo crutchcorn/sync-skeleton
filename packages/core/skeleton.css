@@ -1,56 +1,37 @@
 :root {
-  /* global skeleton vars */
-
-  /* ↓ style */
-
+  /* global skeleton colors */
   --skeleton-base-color: hsl(0 0% 92% / 100%);
   --skeleton-base-color-dark: hsl(0 0% 20% / 100%);
-
   --skeleton-highlight-color: hsl(0 0% 96% / 100%);
   --skeleton-highlight-color-dark: hsl(0 0% 15% / 100%);
 
   /* global radius of skeletons */
   --skeleton-radius: 0px;
 
-  /* highlight gradient */
-  --skeleton-highlight-size: clamp(
-    100px,
-    50vw,
-    500px
-  ); /* size of the gradient that moves */
+  /* global gradient sizes */
+  --skeleton-highlight-size: clamp(100px, 50vw, 500px);
   --skeleton-highlight-leading-edge-blur: clamp(
     10px,
     5vw,
     50px
   ); /* set to 0px for a sharp edge */
-  --skeleton-angle: 90deg; /* gradient's angle */
-
-  /* ↓ effect */
+  /* global gradient angle */
+  --skeleton-angle: 90deg;
 
   /* time to travel a given distance */
   --skeleton-animation-animation-speed: 400; /* travel this many PIXELS */
   --skeleton-animation-animation-time: 1; /* over this many SECONDS */
   --skeleton-animation-animation-scaler: 0.7; /* scale the speed up as the screen size increases (0-1), 0.7 feels good. */
 
-  /* animation */
-  --skeleton-repeat: infinite; /* highly suggest to not repeat this infinitely, for performance, 3 or 5 is pretty good. */
+  /* easing */
   --skeleton-ease: cubic-bezier(0.45, 0.3, 0.7, 0.55);
 
   /* ↓ stuff to calc, don't edit */
 
-  --skeleton-base: light-dark(
-    var(--skeleton-base-color),
-    var(--skeleton-base-color-dark)
-  );
-  --skeleton-highlight: light-dark(
-    var(--skeleton-highlight-color),
-    var(--skeleton-highlight-color-dark)
-  );
-
-  --skeleton-percentage: 0; /* the value we will animate to make the gradient move */
+  /* the value we will animate to make the gradient move */
+  --skeleton-percentage: 0;
   /* interesting hack to get viewport as an Integer; 
       https://dev.to/janeori/css-type-casting-to-numeric-tanatan2-scalars-582j */
-
   --skeleton-full-viewport: 100vw;
   --skeleton-calc-int-width: calc(
     10000 * tan(atan2(var(--skeleton-full-viewport), 10000px))
@@ -79,7 +60,22 @@
       so we multiple total time by 1.33 to account for it */
 }
 
+@media not (prefers-reduced-motion) {
+  :root {
+    animation: skeletonPercent calc(1000ms * var(--skeleton-calc-anim-time))
+      var(--skeleton-ease) infinite;
+  }
+}
+
 .loading-skeleton {
+  --skeleton-base: light-dark(
+    var(--skeleton-base-color),
+    var(--skeleton-base-color-dark)
+  );
+  --skeleton-highlight: light-dark(
+    var(--skeleton-highlight-color),
+    var(--skeleton-highlight-color-dark)
+  );
 
   color: transparent;
   user-select: none;
@@ -91,61 +87,25 @@
       var(--skeleton-highlight-size)
   );
 
-  /* eased gradient, 
-      creates a smoother gradient than a simple 'to right, transparent, white' */
+  --leading-edge: calc(
+    var(--anim-pos) + var(--skeleton-highlight-size) +
+      var(--skeleton-highlight-leading-edge-blur)
+  );
+
+  --gradient-end: calc(
+    var(--anim-pos) + (var(--skeleton-highlight-size) * 100 / 100)
+  );
 
   background-image: linear-gradient(
     var(--skeleton-angle, 90deg),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 0 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.013))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 11.8 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.049))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 22.4 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.104))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 32 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.175))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 40.6 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.259))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 48.4 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.352))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 55.4 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.45))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 61.7 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.55))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 67.4 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.648))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 72.7 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.741))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 77.6 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.825))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 82.3 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.896))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 86.7 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.951))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 91.1 / 100)),
-    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0.987))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 95.5 / 100)),
+    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0)) var(--anim-pos),
     hsl(from var(--skeleton-highlight) h s l / calc(alpha * 1))
-      calc(var(--anim-pos) + (var(--skeleton-highlight-size) * 100 / 100)),
+      var(--gradient-end),
     hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0))
-      calc(
-        var(--anim-pos) +
-          (
-            var(--skeleton-highlight-size) +
-              var(--skeleton-highlight-leading-edge-blur)
-          )
-      )
+      var(--leading-edge)
   );
 
   background-attachment: fixed;
-}
-
-@media not (prefers-reduced-motion) {
-  .loading-skeleton {
-    animation: skeletonPercent calc(1000ms * var(--skeleton-calc-anim-time))
-      var(--skeleton-ease) var(--skeleton-repeat);
-  }
 }
 
 .loading-skeleton.dark {
@@ -154,7 +114,7 @@
 
 @property --skeleton-percentage {
   syntax: '<number>';
-  inherits: false;
+  inherits: true;
   initial-value: 0;
 }
 
@@ -172,5 +132,6 @@
   100% {
     --skeleton-percentage: 1;
   }
-  /* 66% means we wait for ~1/3 of the time after playing the animation for ~2/3 of the time */
+  /* 66% allows for a short pause at the end of animation, 
+    avoiding extremely fast animations on mobile device viewports */
 }

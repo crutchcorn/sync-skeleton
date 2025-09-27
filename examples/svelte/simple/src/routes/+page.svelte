@@ -6,10 +6,10 @@ import Card from '$lib/components/Card.svelte'
 <div class="container">
   <Card />
   <div class="card2">
-    <Card />
+    <Card dark />
   </div>
   <div class="card3">
-    <Card />
+    <Card class="orange-purple-loader" />
   </div>
 </div>
 
@@ -19,6 +19,7 @@ import Card from '$lib/components/Card.svelte'
     color-scheme: light dark;
     background-color: light-dark(white, hsl(0 0% 10%));
     color: light-dark(black, white);
+    --skeleton-radius: 4px;
   }
   
   .container {
@@ -28,11 +29,11 @@ import Card from '$lib/components/Card.svelte'
   }
   
   .card2 {
-    margin-left: 16px;
+    margin-left: 10rem;
   }
   
   .card3 {
-    margin-left: 32px;
+    margin-left: 20rem;
   }
   </style>
   

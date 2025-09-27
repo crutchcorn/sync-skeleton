@@ -1,7 +1,12 @@
 .container {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   gap: 1rem;
+  padding: 1rem;
+  &.dark {
+    color-scheme: dark;
+    background-color: hsl(0 0% 10% / 100%);
+  }
 }
 
 .image {

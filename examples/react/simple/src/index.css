@@ -2,4 +2,12 @@
   color-scheme: light dark;
   background-color: light-dark(white, hsl(0 0% 10%));
   color: light-dark(black, white);
+  --skeleton-radius: 4px;
+}
+	
+.orange-purple-loader {
+  --skeleton-base-color: tomato;
+  --skeleton-highlight-color: darkred;
+  --skeleton-base-color-dark: darkslateblue;
+  --skeleton-highlight-color-dark: indigo;
 }

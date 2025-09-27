@@ -1,8 +1,13 @@
 <script setup lang="ts">
+  import { defineProps } from 'vue';
+
+  const props = defineProps({
+    dark: Boolean,
+  });
 </script>
 
 <template>
-  <div class="cardContainer">
+  <div class="cardContainer" :class="{ dark: props.dark }">
     <div class="loading-skeleton image" />
     <div class="content">
       <div class="loading-skeleton lineHeight lineOne">
@@ -17,13 +22,16 @@
   </div>
 </template>
 
-
-
 <style scoped>
 .cardContainer {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
+		display: inline-flex;
+		flex-direction: row;
+		gap: 1rem;
+		padding: 1rem;
+		&.dark {
+			color-scheme: dark;
+			background-color: hsl(0 0% 10% / 100%);
+		}
 }
 
 .image {
