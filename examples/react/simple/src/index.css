@@ -4,7 +4,7 @@
   color: light-dark(black, white);
   --skeleton-radius: 4px;
 }
-	
+
 .orange-purple-loader {
   --skeleton-base-color: tomato;
   --skeleton-highlight-color: darkred;

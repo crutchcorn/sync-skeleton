@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import { defineProps } from 'vue';
+import { defineProps } from 'vue'
 
-  const props = defineProps({
-    dark: Boolean,
-  });
+const props = defineProps({
+  dark: Boolean,
+})
 </script>
 
 <template>
@@ -24,14 +24,14 @@
 
 <style scoped>
 .cardContainer {
-		display: inline-flex;
-		flex-direction: row;
-		gap: 1rem;
-		padding: 1rem;
-		&.dark {
-			color-scheme: dark;
-			background-color: hsl(0 0% 10% / 100%);
-		}
+  display: inline-flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem;
+  &.dark {
+    color-scheme: dark;
+    background-color: hsl(0 0% 10% / 100%);
+  }
 }
 
 .image {

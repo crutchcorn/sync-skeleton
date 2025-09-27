@@ -96,6 +96,9 @@ importers:
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
+      prettier-plugin-svelte:
+        specifier: ^3.2.7
+        version: 3.4.0(prettier@3.6.2)(svelte@5.39.6)
       publint:
         specifier: 'catalog:'
         version: 0.3.13

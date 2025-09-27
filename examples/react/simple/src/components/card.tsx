@@ -1,8 +1,10 @@
 import styles from './card.module.css'
 
-export function Card(props: { dark?: boolean, className?: string }) {
+export function Card(props: { dark?: boolean; className?: string }) {
   return (
-    <div className={`${styles.container} ${props.dark ? styles.dark : ''} ${props.className}`}>
+    <div
+      className={`${styles.container} ${props.dark ? styles.dark : ''} ${props.className}`}
+    >
       <div className={`loading-skeleton ${styles.image}`} />
       <div className={styles.content}>
         <div

@@ -28,7 +28,7 @@
     "build:all": "nx run-many --target=build --exclude=examples/**",
     "watch": "pnpm run build:all && nx watch --all -- pnpm run build:all",
     "dev": "pnpm run watch",
-    "prettier": "prettier --ignore-unknown .",
+    "prettier": "prettier --ignore-unknown . --check",
     "prettier:write": "pnpm run prettier --write",
     "cipublish": "node scripts/publish.ts"
   },
@@ -50,6 +50,7 @@
     "nx": "21.5.2",
     "premove": "^4.0.0",
     "prettier": "^3.6.2",
+    "prettier-plugin-svelte": "^3.2.7",
     "publint": "catalog:",
     "sherif": "^1.6.1",
     "typescript": "catalog:",

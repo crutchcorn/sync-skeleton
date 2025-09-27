@@ -25,7 +25,7 @@
 			background-color: hsl(0 0% 10% / 100%);
 		}
 	}
-	
+
 	.orange-purple-loader {
 		--skeleton-base-color: tomato;
 		--skeleton-highlight-color: darkred;
