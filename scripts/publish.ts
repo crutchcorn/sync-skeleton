@@ -11,7 +11,7 @@ await publish({
     {
       name: 'sync-skeleton',
       packageDir: 'package',
-    }
+    },
   ],
   branchConfigs: {
     main: {
