@@ -13,6 +13,25 @@ A CSS-only skeleton loader that supports syncing multiple elements' loading indi
 npm install sync-skeleton
 ```
 
+The only prerequisite to using this package is the CSS file. Import it in your project via TypeScript:
+
+```typescript
+// Required for usage
+import 'sync-skeleton/skeleton.css'
+```
+
+Or via HTML:
+
+```html
+<link rel="stylesheet" href="node_modules/sync-skeleton/skeleton.css" />
+```
+
+Then, add the `loading-skeleton` class to any element you want to have the skeleton loader applied to.
+
+```html
+<div class="loading-skeleton" style="width: 200px; height: 20px;"></div>
+```
+
 ## 📐 CSS Variables for customising
 
 ### 🎨 Styling / Design;
