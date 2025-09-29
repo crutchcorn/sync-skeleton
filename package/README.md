@@ -77,7 +77,7 @@ Animation variables are only global (not per-element) and editable via the `:roo
 }
 ```
 
-See the [examples folder](example) for more detailed examples with different frameworks.
+See the [example folder](example) for more detailed usage with Vite.
 
 ## 🌙 Dark Mode;
 
