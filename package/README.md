@@ -3,8 +3,8 @@
 A CSS-only skeleton loader that supports syncing multiple elements' loading indicator at the same time.
 
 <div align="center">
-  <img src="./media/skeleton.gif" width="45%" alt="A skeleton loader with a single gradient going through all elements as if they were a single element" style="margin-right: 10px;" title="Example of the default skeleton loader styling">
-  <img src="./media/skeleton-dark.gif" width="45%" alt="A dark version of the previous skeleton loader" title="Example of the default skeleton loader styling in dark mode">
+  <img src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/skeleton.gif" width="45%" alt="A skeleton loader with a single gradient going through all elements as if they were a single element" style="margin-right: 10px;" title="Example of the default skeleton loader styling">
+  <img src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/skeleton-dark.gif" width="45%" alt="A dark version of the previous skeleton loader" title="Example of the default skeleton loader styling in dark mode">
 </div>
 
 ## Installation
