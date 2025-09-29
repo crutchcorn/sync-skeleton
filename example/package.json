@@ -1,5 +1,5 @@
 {
-  "name": "@sync-skeleton/example-react-simple",
+  "name": "sync-skeleton-example",
   "private": true,
   "type": "module",
   "scripts": {

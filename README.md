@@ -7,6 +7,12 @@ A CSS-only skeleton loader that supports syncing multiple elements' loading indi
   <img src="./media/skeleton-dark.gif" width="45%" alt="A dark version of the previous skeleton loader" title="Example of the default skeleton loader styling in dark mode">
 </div>
 
+## Installation
+
+```shell
+npm install sync-skeleton
+```
+
 ## 📐 CSS Variables for customising
 
 ### 🎨 Styling / Design;
