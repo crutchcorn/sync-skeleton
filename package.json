@@ -11,24 +11,20 @@
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version && pnpm install --no-frozen-lockfile && pnpm prettier:write",
-    "clean": "pnpm --filter \"./packages/**\" run clean",
+    "clean": "pnpm --filter \"package/**\" run clean",
     "preinstall": "node -e \"if(process.env.CI == 'true') {console.log('Skipping preinstall...')} else {process.exit(1)}\" || npx -y only-allow pnpm",
     "test": "pnpm run test:ci",
-    "test:pr": "nx affected --targets=test:sherif,test:knip,test:eslint,test:lib,test:types,test:build,build",
-    "test:ci": "nx run-many --targets=test:sherif,test:knip,test:eslint,test:lib,test:types,test:build,build",
-    "test:eslint": "nx affected --target=test:eslint",
+    "test:pr": "nx affected --targets=test:sherif,test:knip,test:build,build",
+    "test:ci": "nx run-many --targets=test:sherif,test:knip,test:build,build",
     "test:format": "pnpm run prettier --check",
     "test:sherif": "sherif",
-    "test:lib": "nx affected --target=test:lib --exclude=examples/**",
-    "test:lib:dev": "pnpm run test:lib && nx watch --all -- pnpm run test:lib",
     "test:build": "nx affected --target=test:build --exclude=examples/**",
-    "test:types": "nx affected --target=test:types --exclude=examples/**",
     "test:knip": "knip",
     "build": "nx affected --target=build --exclude=examples/**",
     "build:all": "nx run-many --target=build --exclude=examples/**",
     "watch": "pnpm run build:all && nx watch --all -- pnpm run build:all",
     "dev": "pnpm run watch",
-    "prettier": "prettier --ignore-unknown .",
+    "prettier": "prettier --ignore-unknown . --check",
     "prettier:write": "pnpm run prettier --write",
     "cipublish": "node scripts/publish.ts"
   },
@@ -39,29 +35,22 @@
     ]
   },
   "devDependencies": {
-    "@eslint-react/eslint-plugin": "^1.53.1",
     "@tanstack/config": "0.20.1",
-    "@types/node": "catalog:",
-    "@vitest/coverage-istanbul": "^3.2.4",
-    "eslint": "9.35.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "jsdom": "catalog:",
+    "@types/node": "^24.5.2",
     "knip": "^5.63.1",
     "nx": "21.5.2",
     "premove": "^4.0.0",
     "prettier": "^3.6.2",
-    "publint": "catalog:",
-    "sherif": "^1.6.1",
-    "typescript": "catalog:",
-    "typescript54": "npm:typescript@5.9.2",
-    "typescript55": "npm:typescript@5.9.2",
-    "typescript56": "npm:typescript@5.9.2",
-    "typescript57": "npm:typescript@5.9.2",
-    "vite": "catalog:",
-    "vitest": "^3.2.4"
+    "publint": "^0.3.13",
+    "sherif": "^1.6.1"
   },
   "dependencies": {
     "@changesets/cli": "^2.29.7",
     "@svitejs/changesets-changelog-github-compact": "^1.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

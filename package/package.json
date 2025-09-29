@@ -1,0 +1,43 @@
+{
+  "name": "sync-skeleton",
+  "version": "0.0.5",
+  "description": "Synchronized Skeleton Loader",
+  "author": "crutchcorn",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crutchcorn/sync-skeleton.git",
+    "directory": "package"
+  },
+  "homepage": "https://sync-skeleton.dev",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/crutchcorn"
+  },
+  "keywords": [
+    "skeleton",
+    "skeleton-loader",
+    "placeholder",
+    "animation",
+    "loading",
+    "loader",
+    "ui",
+    "component",
+    "react",
+    "vue",
+    "svelte"
+  ],
+  "scripts": {
+    "clean": "premove core/dist ./coverage",
+    "test:build": "publint --strict"
+  },
+  "type": "module",
+  "exports": {
+    "./skeleton.css": "./skeleton.css",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "skeleton.css"
+  ]
+}

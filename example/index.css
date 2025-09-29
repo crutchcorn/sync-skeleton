@@ -1,0 +1,66 @@
+:root {
+  color-scheme: light dark;
+  background-color: light-dark(white, hsl(0 0% 10%));
+  color: light-dark(black, white);
+  --skeleton-radius: 4px;
+}
+
+.orangePurpleLoader {
+  --skeleton-base-color: tomato;
+  --skeleton-highlight-color: darkred;
+  --skeleton-base-color-dark: darkslateblue;
+  --skeleton-highlight-color-dark: indigo;
+}
+
+.container {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem;
+  &.dark {
+    color-scheme: dark;
+    background-color: hsl(0 0% 10% / 100%);
+  }
+}
+
+.image {
+  height: 104px;
+  width: 152px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.lineHeight {
+  flex-basis: 25%;
+}
+
+.lineOne {
+  width: auto;
+}
+
+.lineTwo {
+  width: 48px;
+}
+
+.circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.lineFour {
+  flex-basis: 75%;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  width: 120px;
+  gap: 0.5rem;
+  margin-block-start: auto;
+}

@@ -1,0 +1,137 @@
+:root {
+  /* global skeleton colors */
+  --skeleton-base-color: hsl(0 0% 92% / 100%);
+  --skeleton-base-color-dark: hsl(0 0% 20% / 100%);
+  --skeleton-highlight-color: hsl(0 0% 96% / 100%);
+  --skeleton-highlight-color-dark: hsl(0 0% 15% / 100%);
+
+  /* global radius of skeletons */
+  --skeleton-radius: 0px;
+
+  /* global gradient sizes */
+  --skeleton-highlight-size: clamp(100px, 50vw, 500px);
+  --skeleton-highlight-leading-edge-blur: clamp(
+    10px,
+    5vw,
+    50px
+  ); /* set to 0px for a sharp edge */
+  /* global gradient angle */
+  --skeleton-angle: 90deg;
+
+  /* time to travel a given distance */
+  --skeleton-animation-animation-speed: 400; /* travel this many PIXELS */
+  --skeleton-animation-animation-time: 1; /* over this many SECONDS */
+  --skeleton-animation-animation-scaler: 0.7; /* scale the speed up as the screen size increases (0-1), 0.7 feels good. */
+
+  /* easing */
+  --skeleton-ease: cubic-bezier(0.45, 0.3, 0.7, 0.55);
+
+  /* ↓ stuff to calc, don't edit */
+
+  /* the value we will animate to make the gradient move */
+  --skeleton-percentage: 0;
+  /* interesting hack to get viewport as an Integer; 
+      https://dev.to/janeori/css-type-casting-to-numeric-tanatan2-scalars-582j */
+  --skeleton-full-viewport: 100vw;
+  --skeleton-calc-int-width: calc(
+    10000 * tan(atan2(var(--skeleton-full-viewport), 10000px))
+  );
+  /* scale the animation speed so it gets faster as the screen gets larger,
+    because elements don't normally take up 100% width on larger screens
+    and so the animation would slow down as screen gets larger without this. */
+  --skeleton-calc-scaled-time: calc(
+    (
+      1 - (var(--skeleton-calc-int-width) / 400) *
+        var(--skeleton-animation-animation-scaler) / 5
+    )
+  );
+  /* get the animation time as a fraction of our desired distance/time */
+  --skeleton-calc-anim-time: calc(
+    (
+        (
+            var(--skeleton-calc-int-width) /
+              var(--skeleton-animation-animation-speed)
+          ) *
+          (var(--skeleton-animation-animation-time) * 1.33)
+      ) *
+      var(--skeleton-calc-scaled-time)
+  );
+  /* we have the animation waiting for 1/3 of the time before starting each loop, 
+      so we multiple total time by 1.33 to account for it */
+}
+
+@media not (prefers-reduced-motion) {
+  :root {
+    animation: skeletonPercent calc(1000ms * var(--skeleton-calc-anim-time))
+      var(--skeleton-ease) infinite;
+  }
+}
+
+.loading-skeleton {
+  --skeleton-base: light-dark(
+    var(--skeleton-base-color),
+    var(--skeleton-base-color-dark)
+  );
+  --skeleton-highlight: light-dark(
+    var(--skeleton-highlight-color),
+    var(--skeleton-highlight-color-dark)
+  );
+
+  color: transparent;
+  user-select: none;
+  background-color: var(--skeleton-base);
+  border-radius: var(--skeleton-radius);
+
+  --anim-pos: calc(
+    var(--skeleton-percentage) * (100vw + var(--skeleton-highlight-size) * 2) -
+      var(--skeleton-highlight-size)
+  );
+
+  --leading-edge: calc(
+    var(--anim-pos) + var(--skeleton-highlight-size) +
+      var(--skeleton-highlight-leading-edge-blur)
+  );
+
+  --gradient-end: calc(
+    var(--anim-pos) + (var(--skeleton-highlight-size) * 100 / 100)
+  );
+
+  background-image: linear-gradient(
+    var(--skeleton-angle, 90deg),
+    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0)) var(--anim-pos),
+    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 1))
+      var(--gradient-end),
+    hsl(from var(--skeleton-highlight) h s l / calc(alpha * 0))
+      var(--leading-edge)
+  );
+
+  background-attachment: fixed;
+}
+
+.loading-skeleton.dark {
+  color-scheme: dark;
+}
+
+@property --skeleton-percentage {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+@property --skeleton-full-viewport {
+  syntax: '<length>';
+  initial-value: 0px;
+  inherits: false;
+}
+
+@keyframes skeletonPercent {
+  0% {
+    --skeleton-percentage: 0;
+  }
+  66%,
+  100% {
+    --skeleton-percentage: 1;
+  }
+  /* 66% allows for a short pause at the end of animation, 
+    avoiding extremely fast animations on mobile device viewports */
+}
