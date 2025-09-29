@@ -9,16 +9,10 @@
     "test:types": "tsc"
   },
   "dependencies": {
-    "@sync-skeleton/core": "^0.0.3",
-    "@sync-skeleton/react": "^0.0.4",
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "sync-skeleton": "^0.0.5"
   },
   "devDependencies": {
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "@vitejs/plugin-react": "catalog:",
-    "vite": "catalog:"
+    "vite": "^7.1.7"
   },
   "browserslist": {
     "production": [

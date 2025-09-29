@@ -9,17 +9,9 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 await publish({
   packages: [
     {
-      name: '@sync-skeleton/core',
-      packageDir: 'packages/core',
-    },
-    {
-      name: '@sync-skeleton/react',
-      packageDir: 'packages/react',
-    },
-    {
-      name: '@sync-skeleton/vue',
-      packageDir: 'packages/vue',
-    },
+      name: 'sync-skeleton',
+      packageDir: 'package',
+    }
   ],
   branchConfigs: {
     main: {

@@ -1,6 +1,6 @@
 # 🔄 Sync Skeleton 💀
 
-A framework agnostic skeleton loader that supports syncing multiple elements' loading indicator at the same time.
+A CSS-only skeleton loader that supports syncing multiple elements' loading indicator at the same time.
 
 <div align="center">
   <img src="./media/skeleton.gif" width="45%" alt="A skeleton loader with a single gradient going through all elements as if they were a single element" style="margin-right: 10px;" title="Example of the default skeleton loader styling">
@@ -52,7 +52,7 @@ Animation variables are only global (not per-element) and editable via the `:roo
 }
 ```
 
-See the [examples folder](./examples) for more detailed examples with different frameworks.
+See the [examples folder](example) for more detailed examples with different frameworks.
 
 ## 🌙 Dark Mode;
 
@@ -67,10 +67,3 @@ Additionally, you can add the `dark` class to the skeleton to force dark mode.
 
 Or if your entire application is a dark theme, then you can simply change
 the `--skeleton-base-color` to an appropriate shade of your choice.
-
-## 🔌 Adapters
-
-We support adapters for:
-
-- [React](./packages/react)
-- [Vue](./packages/vue)

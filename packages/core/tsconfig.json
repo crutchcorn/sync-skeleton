@@ -1,8 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "moduleResolution": "Bundler"
-    // "noErrorTruncation": true
-  },
-  "include": ["src", "tests", "eslint.config.js", "vite.config.ts"]
-}
