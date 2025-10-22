@@ -5,18 +5,18 @@ A CSS-only skeleton loader that supports syncing multiple elements' loading indi
 <br>
 
 <div align="center">
-  <img src="../media/skeleton.gif" width="45%" alt="A skeleton loader with a single gradient going through all elements as if they were a single element" style="margin-right: 10px;" title="Example of the default skeleton loader styling">
-  <img src="../media/skeleton-dark.gif" width="45%" alt="A dark version of the previous skeleton loader" title="Example of the default skeleton loader styling in dark mode">
+  <img src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/skeleton.gif" width="45%" alt="A skeleton loader with a single gradient going through all elements as if they were a single element" style="margin-right: 10px;" title="Example of the default skeleton loader styling">
+  <img src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/skeleton-dark.gif" width="45%" alt="A dark version of the previous skeleton loader" title="Example of the default skeleton loader styling in dark mode">
 </div>
   
 <div align="center">
   <em>Compatible with all frameworks, including TailwindCSS</em><br>  
-  <img height="24" src="../media/icons/tailwind.png" alt="TailwindCSS" title="works with TailwindCSS">
-  <img height="24" src="../media/icons/reactjs.png" alt="ReactJS" title="works with ReactJS">
-  <img height="24" src="../media/icons/sveltejs.png" alt="SvelteJS" title="works with SvelteJS">
-  <img height="24" src="../media/icons/vuejs.png" alt="VueJS" title="works with VueJS">
-  <img height="24" src="../media/icons/js.png" alt="Vanilla JS" title="works with Vanilla JS">
-  <img height="24" src="../media/icons/plus.png" alt="And more!" title="And anything else!">
+  <img height="24" src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/icons/tailwind.png" alt="TailwindCSS" title="works with TailwindCSS">
+  <img height="24" src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/icons/reactjs.png" alt="ReactJS" title="works with ReactJS">
+  <img height="24" src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/icons/sveltejs.png" alt="SvelteJS" title="works with SvelteJS">
+  <img height="24" src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/icons/vuejs.png" alt="VueJS" title="works with VueJS">
+  <img height="24" src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/icons/js.png" alt="Vanilla JS" title="works with Vanilla JS">
+  <img height="24" src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/icons/plus.png" alt="And more!" title="And anything else!">
 </div>
 
 <br><br>
