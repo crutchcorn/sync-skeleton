@@ -88,7 +88,7 @@ Here's a [live demo on the tailwind playground](https://play.tailwindcss.com/wru
 
 ### 🎨 Styling / Design;
 
-These can be overridden on a per-element basis.
+These can be overridden globally (`:root {}`), or on a per-element basis.
 
 | Variable                                 | default                     | type       | Description                                        |
 | ---------------------------------------- | --------------------------- | ---------- | -------------------------------------------------- |
