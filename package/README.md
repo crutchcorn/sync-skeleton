@@ -2,10 +2,24 @@
 
 A CSS-only skeleton loader that supports syncing multiple elements' loading indicator at the same time.
 
+<br>
+
 <div align="center">
-  <img src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/skeleton.gif" width="45%" alt="A skeleton loader with a single gradient going through all elements as if they were a single element" style="margin-right: 10px;" title="Example of the default skeleton loader styling">
-  <img src="https://raw.githubusercontent.com/crutchcorn/sync-skeleton/refs/heads/main/media/skeleton-dark.gif" width="45%" alt="A dark version of the previous skeleton loader" title="Example of the default skeleton loader styling in dark mode">
+  <img src="../media/skeleton.gif" width="45%" alt="A skeleton loader with a single gradient going through all elements as if they were a single element" style="margin-right: 10px;" title="Example of the default skeleton loader styling">
+  <img src="../media/skeleton-dark.gif" width="45%" alt="A dark version of the previous skeleton loader" title="Example of the default skeleton loader styling in dark mode">
 </div>
+  
+<div align="center">
+  <em>Compatible with all frameworks, including TailwindCSS</em><br>  
+  <img height="24" src="../media/icons/tailwind.png" alt="TailwindCSS" title="works with TailwindCSS">
+  <img height="24" src="../media/icons/reactjs.png" alt="ReactJS" title="works with ReactJS">
+  <img height="24" src="../media/icons/sveltejs.png" alt="SvelteJS" title="works with SvelteJS">
+  <img height="24" src="../media/icons/vuejs.png" alt="VueJS" title="works with VueJS">
+  <img height="24" src="../media/icons/js.png" alt="Vanilla JS" title="works with Vanilla JS">
+  <img height="24" src="../media/icons/plus.png" alt="And more!" title="And anything else!">
+</div>
+
+<br><br>
 
 ## Installation
 
@@ -26,11 +40,49 @@ Or via HTML:
 <link rel="stylesheet" href="node_modules/sync-skeleton/skeleton.css" />
 ```
 
+<br><br>
+
+## Usage
+
 Then, add the `loading-skeleton` class to any element you want to have the skeleton loader applied to.
 
 ```html
 <div class="loading-skeleton" style="width: 200px; height: 20px;"></div>
 ```
+
+### 📝 Examples;
+
+#### Custom colored loader;
+
+```css
+:root {
+  /* apply to all loader elements */
+  --skeleton-radius: 4px;
+}
+.orange-purple-loader {
+  /* apply to loaders with the 'orange-purple-loader' class only */
+  --skeleton-base-color: tomato;
+  --skeleton-base-color-dark: darkred;
+  --skeleton-highlight-color: darkslateblue;
+  --skeleton-highlight-color-dark: indigo;
+  max-width: 300px;
+  aspect-ratio: 4/3;
+}
+```
+
+```html
+<div class="orange-purple-loader"></div>
+```
+
+#### Using Sync-Skeleton in a typical project;
+
+See the [example folder for more detailed usage with Vite](example).
+
+#### Using Sync-Skeleton with TailwindCSS;
+
+Here's a [live demo on the tailwind playground](https://play.tailwindcss.com/wruRA5Hk7Q)!
+
+<br><br>
 
 ## 📐 CSS Variables for customising
 
@@ -60,24 +112,7 @@ Animation variables are only global (not per-element) and editable via the `:roo
 | `--skeleton-animation-animation-time`   | `1`                                  | `<number>`          | _(seconds)_ - The time of each animation loop                                                    |
 | `--skeleton-animation-animation-scaler` | `0.7`                                | `<number>`          | _(0-1)_ - How much to scale the animation speed up as the screen size increases, 0.7 feels good. |
 
-### 📝 Example;
-
-```css
-/* example of modifying the default color variables */
-:root {
-  /* apply to all loader elements */
-  --skeleton-radius: 4px;
-}
-.orange-purple-loader {
-  /* apply to loaders with the 'orange-purple-loader' class only */
-  --skeleton-base-color: tomato;
-  --skeleton-base-color-dark: darkred;
-  --skeleton-highlight-color: darkslateblue;
-  --skeleton-highlight-color-dark: indigo;
-}
-```
-
-See the [example folder](example) for more detailed usage with Vite.
+<br><br>
 
 ## 🌙 Dark Mode;
 
