@@ -76,11 +76,16 @@ Then, add the `loading-skeleton` class to any element you want to have the skele
 
 #### Using Sync-Skeleton in a typical project;
 
-See the [example folder for more detailed usage with Vite](example).
+See the [example folder for more detailed usage with Vite](/example).
 
 #### Using Sync-Skeleton with TailwindCSS;
 
 Here's a [live demo on the tailwind playground](https://play.tailwindcss.com/wruRA5Hk7Q)!
+
+#### Using Sync-Skeleton with a Framework;
+
+There's a bunch of examples [in this Github Issue #2](https://github.com/crutchcorn/sync-skeleton/issues/2#issuecomment-3433884284) for
+React, Vue, Svelte, Solid, etc. (Thanks, @hatemhosny)
 
 <br><br>
 
