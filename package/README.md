@@ -80,7 +80,7 @@ See the [example folder for more detailed usage with Vite](/example).
 
 #### Using Sync-Skeleton with TailwindCSS;
 
-Here's a [live demo on the tailwind playground](https://play.tailwindcss.com/wruRA5Hk7Q)!
+Here's a [live demo on the tailwind playground](https://play.tailwindcss.com/nFhJkx8koT?file=css)!
 
 #### Using Sync-Skeleton with a Framework;
 
