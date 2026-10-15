@@ -9,7 +9,7 @@
     "test:types": "tsc"
   },
   "dependencies": {
-    "sync-skeleton": "^1.0.2"
+    "sync-skeleton": "^1.1.0"
   },
   "devDependencies": {
     "vite": "^7.1.7"

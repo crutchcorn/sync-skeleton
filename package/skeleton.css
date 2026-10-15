@@ -28,8 +28,6 @@
 
   /* ↓ stuff to calc, don't edit */
 
-  /* the value we will animate to make the gradient move */
-  --skeleton-percentage: 0;
   /* interesting hack to get viewport as an Integer; 
       https://dev.to/janeori/css-type-casting-to-numeric-tanatan2-scalars-582j */
   --skeleton-full-viewport: 100vw;
@@ -58,13 +56,6 @@
   );
   /* we have the animation waiting for 1/3 of the time before starting each loop, 
       so we multiple total time by 1.33 to account for it */
-}
-
-@media not (prefers-reduced-motion) {
-  :root {
-    animation: skeletonPercent calc(1000ms * var(--skeleton-calc-anim-time))
-      var(--skeleton-ease) infinite;
-  }
 }
 
 .loading-skeleton {
@@ -108,13 +99,20 @@
   background-attachment: fixed;
 }
 
+@media not (prefers-reduced-motion) {
+  .loading-skeleton {
+    animation: skeletonPercent calc(1000ms * var(--skeleton-calc-anim-time))
+      var(--skeleton-ease) infinite;
+  }
+}
+
 .loading-skeleton.dark {
   color-scheme: dark;
 }
 
 @property --skeleton-percentage {
   syntax: '<number>';
-  inherits: true;
+  inherits: false;
   initial-value: 0;
 }
 

@@ -1,6 +1,6 @@
 # 🔄 Sync Skeleton 💀
 
-A CSS-only skeleton loader that supports syncing multiple elements' loading indicator at the same time.
+A customisable CSS-only skeleton loader. Skeletons that appear together sync with a single wave.
 
 <br>
 
@@ -49,6 +49,16 @@ Then, add the `loading-skeleton` class to any element you want to have the skele
 ```html
 <div class="loading-skeleton" style="width: 200px; height: 20px;"></div>
 ```
+
+<br><br>
+
+## 🌊 How sync works
+
+The highlight is a gradient with `background-attachment: fixed`. Skeletons at the same point in the animation paint that gradient in the same place on the viewport, so the band runs through all of them as one shape.
+
+Each `.loading-skeleton` runs the animation itself. Elements that enter in the same frame start together, at 0, with the same duration and easing, and they stay lined up until they leave.
+
+A skeleton that mounts later starts its own loop at 0 while the others are already partway through. So does one that was `display: none` and then shown. It still shimmers but it won't be synced with others. This is a necessary performance optimization.
 
 ### 📝 Examples;
 
@@ -108,7 +118,7 @@ These can be overridden globally (`:root {}`), or on a per-element basis.
 
 ### 🎬 Animation;
 
-Animation variables are only global (not per-element) and editable via the `:root {}` selector.
+Animation variables are only global (not per-element) and editable via the `:root {}` selector. The duration math lives there and is inherited. The `skeletonPercent` animation itself runs on `.loading-skeleton`.
 
 | Variable                                | default                              | type                | Description                                                                                      |
 | --------------------------------------- | ------------------------------------ | ------------------- | ------------------------------------------------------------------------------------------------ |
